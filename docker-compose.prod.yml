@@ -1,0 +1,8 @@
+services:
+  web:
+    command: start
+  api:
+    command: start
+  db:
+    volumes:
+      - .:/usr/data

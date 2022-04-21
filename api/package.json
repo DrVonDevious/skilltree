@@ -1,0 +1,38 @@
+{
+  "name": "skilltrees-api",
+  "version": "0.1.0",
+  "description": "The api for the Skilltrees web app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --clear server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "jest --watch",
+    "lint": "eslint . --ext .ts"
+  },
+  "author": "william rutland (william.prometheus@gmail.com)",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.25",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
+    "@typescript-eslint/parser": "^5.20.0",
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "jest": "^27.5.1",
+    "prisma": "^3.12.0",
+    "supertest": "^6.2.2",
+    "ts-node-dev": "^1.1.8",
+    "tsc": "^2.0.4",
+    "typescript": "^4.6.3"
+  }
+}
