@@ -1,7 +1,11 @@
+import { ChakraProvider } from '@chakra-ui/react';
 import { FunctionComponent } from 'react';
+import Home from './home';
 
-const App: FunctionComponent = () => (
-    <h1>Hello World!</h1>
+const Index: FunctionComponent = () => (
+  <ChakraProvider>
+    <Home />
+  </ChakraProvider>
 );
 
-export default App;
+export default Index;
