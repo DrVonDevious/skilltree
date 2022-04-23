@@ -1,5 +1,4 @@
 import { Button, Heading, Stack } from '@chakra-ui/react';
-import Link from 'next/link';
 import { FunctionComponent } from 'react';
 
 const Home: FunctionComponent = () => (
@@ -9,9 +8,10 @@ const Home: FunctionComponent = () => (
         Skilltree allows you to find<br/>a roadmap to learn any skill,<br/>or create your own!
       </Heading>
       <Button size="lg" width={48} colorScheme="green">
-        <Link href="create-account">
-          Sign Up
-        </Link>
+        {/* @ts-ignore */}
+        <a href="/api/auth/login">
+          Sign In
+        </a>
       </Button>
     </Stack>
 );

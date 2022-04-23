@@ -28,9 +28,9 @@ describe('Index', () => {
     expect(subheading).toBeInTheDocument();
   });
 
-  it('renders a button for registering an account', () => {
+  it('renders a button for signing into an account', () => {
     const registerButton = screen.getByRole("button", {
-      name: "Sign Up",
+      name: "Sign In",
     });
 
     expect(registerButton).toBeInTheDocument();
@@ -38,13 +38,13 @@ describe('Index', () => {
 
   it('register button sends user to register page', () => {
     const registerLink = screen.getByRole("link", {
-      name: "Sign Up",
+      name: "Sign In",
     });
 
     expect(registerLink).toBeInTheDocument();
 
     fireEvent.click(registerLink);
 
-    expect(singletonRouter).toMatchObject({ asPath: '/create-account' });
+    expect(singletonRouter).toMatchObject({ asPath: '/' });
   });
 });
