@@ -1,29 +1,21 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import '@testing-library/jest-dom';
 import Navbar from '../../components/Navbar';
+import { UserProvider } from "@auth0/nextjs-auth0";
 
 describe('Navbar', () => {
-  beforeEach(() => {
-    render(<Navbar />);
+  beforeEach(async () => {
+    await waitFor(() => {
+      render(
+        <UserProvider>
+          <Navbar />
+        </UserProvider>
+      );
+    });
   });
 
   it('renders a logo in the navbar', () => {
     const logo = screen.getByRole('img');
     expect(logo).toBeInTheDocument();
-  });
-  
-  it('renders a search input in the navbar', () => {
-    const search = screen.getByRole('textbox');
-    expect(search).toBeInTheDocument();
-  });
-
-  it('renders a sign in button in the navbar', () => {
-    const button = screen.getByRole('button', { name: 'Sign In' });
-    expect(button).toBeInTheDocument();
-  });
-
-  it('renders a sign up button in the navbar', () => {
-    const button = screen.getByRole('button', { name: 'Sign Up' });
-    expect(button).toBeInTheDocument();
   });
 });

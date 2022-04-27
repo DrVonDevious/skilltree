@@ -1,17 +1,23 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import env from 'dotenv';
 import path from 'path';
+import trees from './routes/trees';
 
 env.config({ path: path.resolve(__dirname, '../.env') });
 
 const app = express();
 
 const start = async () => {
-  app.use(bodyParser.urlencoded({ extended: false }));
   app.use(bodyParser.json());
 
-  app.listen(process.env.port, () => {
+  app.use('/trees', trees);
+
+  app.get('/', (_req: Request, res: Response) => {
+    res.send('Connected to Skilltrees API!');
+  });
+
+  app.listen(process.env.API_PORT, () => {
     console.log(`server listening at ${process.env.API_HOST}:${process.env.API_PORT}`);
   });
 };
