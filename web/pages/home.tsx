@@ -25,10 +25,12 @@ const Home: FunctionComponent = () => {
       <Navbar />
       <Flex flexGrow={1}>
         <Sidebar context='home' />
-        <Box margin='48px 24px' width='100%' textAlign='center'>
-          <Heading>Explore Skilltrees</Heading>
-          <ExploreTreesList content={trees} />
-        </Box>
+        <Flex w='100%' justifyContent='center'>
+          <Box margin='48px 24px' maxW='960px' width='100%' textAlign='center'>
+            <Heading>Explore Skilltrees</Heading>
+            <ExploreTreesList content={trees} />
+          </Box>
+        </Flex>
       </Flex>
     </Flex>
   );

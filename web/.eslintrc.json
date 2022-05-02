@@ -18,6 +18,13 @@
     "rules": {
         "@next/next/no-html-link-for-pages": 0,
         "import/extensions": 0,
-        "no-underscore-dangle": 0
+        "no-underscore-dangle": 0,
+        "@typescript-eslint/quotes": [
+            2,
+            "single",
+            {
+                "allowTemplateLiterals": true
+            }
+        ]
     }
 }

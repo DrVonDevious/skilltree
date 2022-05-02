@@ -16,13 +16,9 @@ const Sidebar: FunctionComponent<SidebarProps> = ({ context }) => {
   };
 
   return (
-    <Flex h='100%' flexDir="row">
-      { !isOpen
-        && <Box height='100%' width="60px" borderRightColor="blackAlpha.300" borderRightWidth={1} borderRightStyle="solid">
-        </Box>
-      }
+    <Flex h='100%' flexDir="row" borderRightWidth={1} borderRightColor='blackAlpha.300'>
       { isOpen
-        && <Box height='100%' width={80} borderRightColor="blackAlpha.300" borderRightWidth={1} borderRightStyle="solid">
+        && <Box height='100%' width="280px" borderRightColor="blackAlpha.300" borderRightWidth={1} borderRightStyle="solid">
           { context === 'home'
             && <HomeSidebarContent />
           }
@@ -34,7 +30,7 @@ const Sidebar: FunctionComponent<SidebarProps> = ({ context }) => {
       <IconButton
         aria-label="toggle sidebar"
         onClick={() => toggleSidebar()}
-        variant="ghost"
+        variant="solid"
         margin={2}
         icon={isOpen ? <ChevronLeftRounded /> : <ChevronRightRounded />}
       />
