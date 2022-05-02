@@ -1,25 +1,25 @@
 import {
-  Box, Button, Heading, Stack,
+  Flex, Heading,
 } from '@chakra-ui/react';
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useEffect } from 'react';
 import Navbar from '../components/Navbar';
+import Sidebar from '../components/Sidebar';
+import { getTrees } from '../lib/requests';
 
-const Home: FunctionComponent = () => (
-  <Box>
-    <Navbar />
-    <Stack spacing={14} marginY={32} marginLeft="20%" align="start">
-      <Heading size='3xl' maxW="70%">Grow your skillset<br/>with Skilltree</Heading>
-      <Heading size='lg' maxW="70%">
-        Skilltree allows you to find<br/>a roadmap to learn any skill,<br/>or create your own!
-      </Heading>
-      {/* @ts-ignore */}
-      <a href="/api/auth/login" data-testid="home-register-button">
-        <Button size="lg" width={48} colorScheme="green">
-          Sign In
-        </Button>
-      </a>
-    </Stack>
-  </Box>
-);
+const Home: FunctionComponent = () => {
+  useEffect(() => {
+    getTrees(10, 0);
+  }, []);
+
+  return (
+    <Flex direction="column" w='100%' h='100%'>
+      <Navbar />
+      <Flex flexGrow={1}>
+        <Sidebar context='home' />
+        <Heading>Trending Skilltrees</Heading>
+      </Flex>
+    </Flex>
+  );
+};
 
 export default Home;

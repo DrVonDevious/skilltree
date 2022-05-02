@@ -2,13 +2,15 @@ import express, { Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import env from 'dotenv';
 import path from 'path';
+import cors from 'cors';
 import trees from './routes/trees';
 
-env.config({ path: path.resolve(__dirname, '../.env') });
+env.config({ path: path.resolve(__dirname, './.env') });
 
 const app = express();
 
 const start = async () => {
+  app.use(cors());
   app.use(bodyParser.json());
 
   app.use('/trees', trees);

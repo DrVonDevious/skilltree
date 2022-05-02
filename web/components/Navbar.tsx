@@ -19,7 +19,7 @@ const Navbar: FunctionComponent = () => {
 
   return (
     <Flex
-      minH={'64px'}
+      height={'47px'}
       borderBottom={1}
       borderColor='blackAlpha.300'
       borderStyle='solid'
@@ -28,37 +28,43 @@ const Navbar: FunctionComponent = () => {
       px={4}
     >
       <Flex justify={{ base: 'center', md: 'start' }}>
-        <Image alt='Skilltree' boxSize='30px' mr={2} src='/logo.svg' />
+        <Image alt='Skilltrees' alignSelf="center" boxSize='24px' mr={2} src='/logo.svg' />
         <Text
           textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
           fontWeight='bold'
           fontSize={20}
           color={useColorModeValue('gray.800', 'white')}
         >
-          Skilltree
+          Skilltrees
         </Text>
       </Flex>
       <Flex flex={1} justifyContent='center'>
-        <Input placeholder='Search' w='70%'/>
+        <Input height={8} placeholder='Search' w='70%'/>
       </Flex>
       <Flex>
         { isLoading
-          && <SkeletonCircle boxSize={10} />
+          && <SkeletonCircle boxSize={8} />
         }
         { !isLoading && !user
           && <Flex columnGap={2}>
             <a href='/api/auth/login'>
-              <Button variant='outline'>Sign In</Button>
+              <Button size="sm" variant='outline'>Sign In</Button>
             </a>
             <a href='/api/auth/login'>
-              <Button>Sign Up</Button>
+              <Button size="sm">Sign Up</Button>
             </a>
           </Flex>
         }
         { !isLoading && user
           && <Flex columnGap={2}>
-            <Avatar boxSize={10} src={user.picture} />
-            <IconButton aria-label='logout' icon={<LogoutRounded />} />
+            <Avatar alignSelf="center" boxSize={8} src={user.picture} />
+            <a href='/api/auth/logout'>
+              <IconButton
+                variant='ghost'
+                aria-label='logout'
+                icon={<LogoutRounded />}
+              />
+            </a>
           </Flex>
         }
       </Flex>
