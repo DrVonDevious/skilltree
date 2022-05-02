@@ -1,3 +1,5 @@
+import { Tree } from './typings';
+
 // Typescript can't seem to find RequestInit.. Maybe look into this :(
 export type RequestInit = {
   body?: Blob | FormData,
@@ -21,7 +23,8 @@ const _tryFetch = async (url: string, options?: RequestInit): Promise<any> => {
   }
 };
 
-export const getTrees = async (take: number, skip: number) => {
+export const getTrees = async (take: number, skip: number): Promise<Tree[]> => {
   const response: FetchResponse = await _tryFetch(`trees?take=${take}&skip=${skip}`);
   console.log(response.status, response.data, response.error);
+  return response.data;
 };
