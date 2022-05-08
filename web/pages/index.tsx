@@ -2,15 +2,25 @@ import { useUser } from '@auth0/nextjs-auth0';
 import {
   Box, Button, Heading, Stack,
 } from '@chakra-ui/react';
-import { FunctionComponent } from 'react';
-import Navbar from '../components/Navbar';
+import { FunctionComponent, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setContext } from '../lib/slices/navigation';
 import Home from './home';
 
 const Index: FunctionComponent = () => {
   const { user, isLoading } = useUser();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!isLoading && user) {
+      dispatch(setContext('home'));
+    } else {
+      dispatch(setContext('none'));
+    }
+  }, [user, isLoading]);
 
   return (
-    <Box w="100vw" h="100vh">
+    <Box width="100%">
       { isLoading
         && <></>
       }
@@ -19,11 +29,16 @@ const Index: FunctionComponent = () => {
       }
       { !isLoading && !user
         && <Box>
-          <Navbar />
           <Stack spacing={14} marginY={32} marginLeft="20%" align="start">
-            <Heading size='3xl' maxW="70%">Grow your skillset<br/>with Skilltree</Heading>
+            <Heading size='3xl' maxW="70%">
+              Grow your skillset<br/>with Skilltree
+            </Heading>
             <Heading size='lg' maxW="70%">
-              Skilltree allows you to find<br/>a roadmap to learn any skill,<br/>or create your own!
+              Skilltree allows you to find
+              <br/>
+              a roadmap to learn any skill,
+              <br/>
+              or create your own!
             </Heading>
             {/* @ts-ignore */}
             <a href="/api/auth/login" data-testid="home-register-button">

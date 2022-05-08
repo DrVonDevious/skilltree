@@ -16,6 +16,7 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "max-len": ["error", {"code": 80}],
         "@next/next/no-html-link-for-pages": 0,
         "import/extensions": 0,
         "no-underscore-dangle": 0,
@@ -24,6 +25,13 @@
             "single",
             {
                 "allowTemplateLiterals": true
+            }
+        ],
+        "no-param-reassign": [
+            2,
+            {
+                "props": true,
+                "ignorePropertyModificationsFor": [ "state" ]
             }
         ]
     }

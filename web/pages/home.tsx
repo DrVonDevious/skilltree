@@ -4,8 +4,6 @@ import {
 } from '@chakra-ui/react';
 import { FunctionComponent, useEffect, useState } from 'react';
 import ExploreTreesList from '../components/ExploreTreesList';
-import Navbar from '../components/Navbar';
-import Sidebar from '../components/Sidebar';
 import { getTrees } from '../lib/requests';
 import { Tree } from '../lib/typings';
 
@@ -21,17 +19,11 @@ const Home: FunctionComponent = () => {
   }, []);
 
   return (
-    <Flex direction="column" w='100%' h='100%'>
-      <Navbar />
-      <Flex flexGrow={1}>
-        <Sidebar context='home' />
-        <Flex w='100%' justifyContent='center'>
-          <Box margin='48px 24px' maxW='960px' width='100%' textAlign='center'>
-            <Heading>Explore Skilltrees</Heading>
-            <ExploreTreesList content={trees} />
-          </Box>
-        </Flex>
-      </Flex>
+    <Flex w='100%' justifyContent='center'>
+      <Box margin='48px 24px' maxW='960px' width='100%' textAlign='center'>
+        <Heading>Explore Skilltrees</Heading>
+        <ExploreTreesList content={trees} />
+      </Box>
     </Flex>
   );
 };

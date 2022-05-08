@@ -12,6 +12,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { LogoutRounded } from '@mui/icons-material';
+import Link from 'next/link';
 import { FunctionComponent } from 'react';
 
 const Navbar: FunctionComponent = () => {
@@ -27,17 +28,25 @@ const Navbar: FunctionComponent = () => {
       py={2}
       px={4}
     >
-      <Flex justify={{ base: 'center', md: 'start' }}>
-        <Image alt='Skilltrees' alignSelf="center" boxSize='24px' mr={2} src='/logo.svg' />
-        <Text
-          textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-          fontWeight='bold'
-          fontSize={20}
-          color={useColorModeValue('gray.800', 'white')}
-        >
-          Skilltrees
-        </Text>
-      </Flex>
+      <Link href="/">
+        <Flex cursor="pointer" justify={{ base: 'center', md: 'start' }}>
+          <Image
+            alt='Skilltrees'
+            alignSelf="center"
+            boxSize='24px'
+            mr={2}
+            src='/logo.svg'
+          />
+          <Text
+            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
+            fontWeight='bold'
+            fontSize={20}
+            color={useColorModeValue('gray.800', 'white')}
+          >
+            Skilltrees
+          </Text>
+        </Flex>
+      </Link>
       <Flex flex={1} justifyContent='center'>
         <Input height={8} placeholder='Search' w='70%'/>
       </Flex>

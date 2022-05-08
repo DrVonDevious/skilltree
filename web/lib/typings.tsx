@@ -4,10 +4,15 @@ export interface Tree {
   description: string,
 }
 
-export interface Branch {
+export interface Leaf {
+  id: string,
   name: string,
+  position: number,
 }
 
-export interface Leaf {
+export interface Branch {
+  id: string,
   name: string,
+  position: number,
+  leaves: Leaf[],
 }
